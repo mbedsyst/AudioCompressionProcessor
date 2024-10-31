@@ -1,0 +1,5 @@
+../Src/Libraries/ADPCM.c:21:6:ADPCM_Init	16	static
+../Src/Libraries/ADPCM.c:28:15:ADPCM_EncodeSample	32	static
+../Src/Libraries/ADPCM.c:72:6:ADPCM_EncodeBlock	32	static
+../Src/Libraries/ADPCM.c:85:16:ADPCM_DecodeSample	32	static
+../Src/Libraries/ADPCM.c:112:6:ADPCM_DecodeBlock	40	static

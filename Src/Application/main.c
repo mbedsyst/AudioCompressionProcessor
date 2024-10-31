@@ -1,14 +1,23 @@
 #include "Application/main.h"
 
 #define AUDIO_FILE_SIZE		(960512)	// File size in bytes
-#define AUDIO_BLOCK_SIZE	(AUDIO_FILE_SIZE/W25Q_PageSize)
+#define AUDIO_BLOCK_SIZE	(AUDIO_FILE_SIZE/4096)
+
+ADPCMEncoderState state;
+
+int16_t SoundData[2048] = {0};
+int16_t EncodedData[512] = {0};
+int16_t DecodedData[2048] = {0};
 
 int main()
 {
 	W25Q_Init();
-	ADPCM_Init();
+	LED_Init();
+	UART2_Init();
 
-	for(uint32_t i = 0; i <AUDIO_FILE_SIZE; i++)
+	ADPCM_Init(&state);
+
+	for(uint32_t i = 0; i <AUDIO_BLOCK_SIZE; i++)
 	{
 		// Read original data from Flash
 		// Encode Audio

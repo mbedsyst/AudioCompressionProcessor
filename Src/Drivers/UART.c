@@ -1,7 +1,7 @@
 #include "Drivers/UART.h"
 
 #define UART_BAUDRATE	115200
-#define SYS_FREQ		84000000
+#define SYS_FREQ		16000000
 #define APB1_CLK		SYS_FREQ/2
 
 static void UART2_SetBaudRate(uint32_t periph_clk, uint32_t baudrate);

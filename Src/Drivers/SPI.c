@@ -36,40 +36,40 @@ void SPI2_SelectSlave(void)
 
 void SPI2_DeselectSlave(void)
 {
-    	// Pull CS high
-    	GPIOB->BSRR = (1 << 12);
+	// Pull CS high
+	GPIOB->BSRR = (1 << 12);
 }
 
 uint8_t SPI2_TransmitReceiveByte(uint8_t data)
 {
-    	// Wait until TXE (Transmit buffer empty)
-    	while(!(SPI2->SR & SPI_SR_TXE));
-    	// Send data
-    	SPI2->DR = data;
-    	// Wait until RXNE (Receive buffer not empty)
-    	while(!(SPI2->SR & SPI_SR_RXNE));
-    	// Return received data
-    	return (uint8_t)(SPI2->DR);
+	// Wait until TXE (Transmit buffer empty)
+	while(!(SPI2->SR & SPI_SR_TXE));
+	// Send data
+	SPI2->DR = data;
+	// Wait until RXNE (Receive buffer not empty)
+	while(!(SPI2->SR & SPI_SR_RXNE));
+	// Return received data
+	return (uint8_t)(SPI2->DR);
 }
 
 void SPI2_TransmitReceive_MultiByte(uint8_t *txData, uint8_t *rxData, uint16_t size)
 {
-    	uint16_t i = 0;
-    	while (i < size)
-    	{
-        	// Wait until TXE (Transmit buffer empty)
-        	while (!(SPI2->SR & SPI_SR_TXE));
-        	// Transmit data
-        	SPI2->DR = txData[i];
-        	// Wait until RXNE (Receive buffer not empty)
-       		while (!(SPI2->SR & SPI_SR_RXNE));
-        	// Read received data, even if rxData is NULL (to clear RXNE flag)
-        	uint8_t receivedByte = (uint8_t)(SPI2->DR);
-        	// Store received data only if rxData is not NULL
-        	if (rxData != NULL)
-        	{
-            		rxData[i] = receivedByte;
-        	}
-        	i++;
-    	}
+	uint16_t i = 0;
+	while (i < size)
+	{
+		// Wait until TXE (Transmit buffer empty)
+		while (!(SPI2->SR & SPI_SR_TXE));
+		// Transmit data
+		SPI2->DR = txData[i];
+		// Wait until RXNE (Receive buffer not empty)
+		while (!(SPI2->SR & SPI_SR_RXNE));
+		// Read received data, even if rxData is NULL (to clear RXNE flag)
+		uint8_t receivedByte = (uint8_t)(SPI2->DR);
+		// Store received data only if rxData is not NULL
+		if (rxData != NULL)
+		{
+				rxData[i] = receivedByte;
+		}
+		i++;
+	}
 }

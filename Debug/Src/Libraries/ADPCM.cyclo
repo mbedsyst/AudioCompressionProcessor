@@ -1,0 +1,5 @@
+../Src/Libraries/ADPCM.c:21:6:ADPCM_Init	1
+../Src/Libraries/ADPCM.c:28:15:ADPCM_EncodeSample	11
+../Src/Libraries/ADPCM.c:72:6:ADPCM_EncodeBlock	2
+../Src/Libraries/ADPCM.c:85:16:ADPCM_DecodeSample	9
+../Src/Libraries/ADPCM.c:112:6:ADPCM_DecodeBlock	2
