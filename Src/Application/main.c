@@ -6,7 +6,7 @@
 ADPCMEncoderState state;
 
 int16_t SoundData[2048] = {0};
-int16_t EncodedData[512] = {0};
+int8_t EncodedData[1024] = {0};
 int16_t DecodedData[2048] = {0};
 
 int main()
@@ -17,18 +17,20 @@ int main()
 
 	ADPCM_Init(&state);
 
-	for(uint32_t i = 0; i <AUDIO_BLOCK_SIZE; i++)
+	for(int32_t i = 0; i <AUDIO_BLOCK_SIZE; i++)
 	{
-		// Read original data from Flash
-		// Encode Audio
-		// Write encoded audio to Flash
+		ReadAudioData(i, SoundData, 2048);
+		ADPCM_EncodeBlock(&state, SoundData, EncodedData, 2048);
+		WritePCMCode(i + 8192, EncodedData, 1024);
 	}
 
-	for(uint32_t i = 0; i <AUDIO_FILE_SIZE; i++)
+	ADPCM_Init(&state);
+
+	for(int32_t i = 0; i <AUDIO_FILE_SIZE; i++)
 	{
-		// Read encoded audio from Flash
-		// Decode Audio
-		// Write decoded audio to Flash
+		ReadPCMCode(i + 8192, EncodedData, 1024);
+		ADPCM_DecodeBlock(&state, EncodedData, DecodedData, 2048);
+		WriteAudioData(i + 16384, DecodedData, 2048);
 	}
 
 	while(1)

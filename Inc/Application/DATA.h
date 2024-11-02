@@ -7,4 +7,7 @@
 void ReadAudioData(uint16_t page, int16_t *buffer, uint16_t size);
 void WriteAudioData(uint16_t page, int16_t *buffer, uint16_t size);
 
+void ReadPCMCode(uint16_t page, int8_t *buffer, uint16_t size);
+void WritePCMCode(uint16_t page, int8_t *buffer, uint16_t size);
+
 #endif

@@ -5,12 +5,15 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../Src/Application/DATA.c \
 ../Src/Application/main.c 
 
 OBJS += \
+./Src/Application/DATA.o \
 ./Src/Application/main.o 
 
 C_DEPS += \
+./Src/Application/DATA.d \
 ./Src/Application/main.d 
 
 
@@ -21,7 +24,7 @@ Src/Application/%.o Src/Application/%.su Src/Application/%.cyclo: ../Src/Applica
 clean: clean-Src-2f-Application
 
 clean-Src-2f-Application:
-	-$(RM) ./Src/Application/main.cyclo ./Src/Application/main.d ./Src/Application/main.o ./Src/Application/main.su
+	-$(RM) ./Src/Application/DATA.cyclo ./Src/Application/DATA.d ./Src/Application/DATA.o ./Src/Application/DATA.su ./Src/Application/main.cyclo ./Src/Application/main.d ./Src/Application/main.o ./Src/Application/main.su
 
 .PHONY: clean-Src-2f-Application
 

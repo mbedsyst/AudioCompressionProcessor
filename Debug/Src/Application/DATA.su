@@ -1,0 +1,4 @@
+../Src/Application/DATA.c:3:6:ReadAudioData	56	dynamic
+../Src/Application/DATA.c:14:6:WriteAudioData	56	dynamic
+../Src/Application/DATA.c:26:6:ReadPCMCode	56	dynamic
+../Src/Application/DATA.c:39:6:WritePCMCode	16	static

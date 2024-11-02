@@ -11,7 +11,7 @@ typedef struct
 } ADPCMEncoderState;
 
 void ADPCM_Init(ADPCMEncoderState *state);
-void ADPCM_EncodeBlock(ADPCMEncoderState *state, int16_t *pcm_buffer, uint8_t *adpcm_buffer, int16_t sample_count);
-void ADPCM_DecodeBlock(const uint8_t *compressedData, int16_t *decodedData, int dataSize, int *predictedSample, int *stepIndex);
+void ADPCM_EncodeBlock(ADPCMEncoderState *state, int16_t *pcm_buffer, int8_t *adpcm_buffer, int16_t sample_count);
+void ADPCM_DecodeBlock(ADPCMEncoderState *state, const uint8_t *compressedData, int16_t *decodedData, int dataSize);
 
 #endif

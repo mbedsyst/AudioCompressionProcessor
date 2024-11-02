@@ -1,3 +1,4 @@
+"./Src/Application/DATA.o"
 "./Src/Application/main.o"
 "./Src/Drivers/CLOCK.o"
 "./Src/Drivers/LED.o"
