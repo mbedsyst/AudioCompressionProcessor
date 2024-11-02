@@ -69,13 +69,13 @@ static int8_t ADPCM_EncodeSample(ADPCMEncoderState *state, int16_t sample)
     return (int8_t)(code & 0x0F);  // Return 4-bit compressed code
 }
 
-void ADPCM_EncodeBlock(ADPCMEncoderState *state, int16_t *pcm_buffer, int8_t *adpcm_buffer, int16_t sample_count)
+void ADPCM_EncodeBlock(ADPCMEncoderState *state, int16_t *audioData, int8_t *adpcmCode, int16_t sampleCount)
 {
-    for (int16_t i = 0; i < sample_count; i += 2)
+    for (int16_t i = 0; i < sampleCount; i += 2)
     {
-        int8_t adpcm_sample1 = ADPCM_EncodeSample(state, pcm_buffer[i]);
-        int8_t adpcm_sample2 = ADPCM_EncodeSample(state, pcm_buffer[i + 1]);
-        adpcm_buffer[i / 2] = (adpcm_sample1 << 4) | (adpcm_sample2 & 0x0F);
+        int8_t adpcmSample1 = ADPCM_EncodeSample(state, audioData[i]);
+        int8_t adpcmSample2 = ADPCM_EncodeSample(state, audioData[i + 1]);
+        adpcmCode[i / 2] = (adpcmSample1 << 4) | (adpcmSample2 & 0x0F);
     }
 }
 
@@ -101,12 +101,11 @@ static int16_t ADPCM_DecodeSample(ADPCMEncoderState *state, uint8_t code)
     return (int16_t)state->predictedSample;
 }
 
-
-void ADPCM_DecodeBlock(ADPCMEncoderState *state, const uint8_t *compressedData, int16_t *decodedData, int dataSize)
+void ADPCM_DecodeBlock(ADPCMEncoderState *state, const uint8_t *adpcmCode, int16_t *decodedData, int sampleCount)
 {
-	for (int i = 0; i < dataSize; i++)
+	for (int i = 0; i < sampleCount; i++)
 	{
-		decodedData[i] = ADPCM_DecodeSample(compressedData[i], state);
+		decodedData[i] = ADPCM_DecodeSample(adpcmCode[i], state);
 	}
 }
 

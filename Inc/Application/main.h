@@ -2,7 +2,10 @@
 #define MAIN_H_
 
 #include <stdio.h>
+
+#include "Drivers/LED.h"
+#include "Drivers/UART.h"
 #include "Libraries/ADPCM.h"
-#include "Libraries/W25Qxx.h"
+#include "Application/DATA.h"
 
 #endif

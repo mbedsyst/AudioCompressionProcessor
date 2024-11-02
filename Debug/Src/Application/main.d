@@ -1,6 +1,5 @@
 Src/Application/main.o: ../Src/Application/main.c \
- ../Inc/Application/main.h ../Inc/Libraries/ADPCM.h \
- ../Inc/Libraries/W25Qxx.h ../Inc/Drivers/SPI.h \
+ ../Inc/Application/main.h ../Inc/Drivers/LED.h \
  C:/Users/zalma/OneDrive/Documents/F401_DSP/ZZ_Audio_Compression/Headers/Device/ST/STM32F4xx/Include/stm32f4xx.h \
  C:/Users/zalma/OneDrive/Documents/F401_DSP/ZZ_Audio_Compression/Headers/Device/ST/STM32F4xx/Include/stm32f401xe.h \
  C:/Users/zalma/OneDrive/Documents/F401_DSP/ZZ_Audio_Compression/Headers/Include/core_cm4.h \
@@ -9,11 +8,10 @@ Src/Application/main.o: ../Src/Application/main.c \
  C:/Users/zalma/OneDrive/Documents/F401_DSP/ZZ_Audio_Compression/Headers/Include/cmsis_gcc.h \
  C:/Users/zalma/OneDrive/Documents/F401_DSP/ZZ_Audio_Compression/Headers/Include/mpu_armv7.h \
  C:/Users/zalma/OneDrive/Documents/F401_DSP/ZZ_Audio_Compression/Headers/Device/ST/STM32F4xx/Include/system_stm32f4xx.h \
- ../Inc/Drivers/CLOCK.h
+ ../Inc/Drivers/UART.h ../Inc/Libraries/ADPCM.h ../Inc/Application/DATA.h \
+ ../Inc/Libraries/W25Qxx.h ../Inc/Drivers/SPI.h ../Inc/Drivers/CLOCK.h
 ../Inc/Application/main.h:
-../Inc/Libraries/ADPCM.h:
-../Inc/Libraries/W25Qxx.h:
-../Inc/Drivers/SPI.h:
+../Inc/Drivers/LED.h:
 C:/Users/zalma/OneDrive/Documents/F401_DSP/ZZ_Audio_Compression/Headers/Device/ST/STM32F4xx/Include/stm32f4xx.h:
 C:/Users/zalma/OneDrive/Documents/F401_DSP/ZZ_Audio_Compression/Headers/Device/ST/STM32F4xx/Include/stm32f401xe.h:
 C:/Users/zalma/OneDrive/Documents/F401_DSP/ZZ_Audio_Compression/Headers/Include/core_cm4.h:
@@ -22,4 +20,9 @@ C:/Users/zalma/OneDrive/Documents/F401_DSP/ZZ_Audio_Compression/Headers/Include/
 C:/Users/zalma/OneDrive/Documents/F401_DSP/ZZ_Audio_Compression/Headers/Include/cmsis_gcc.h:
 C:/Users/zalma/OneDrive/Documents/F401_DSP/ZZ_Audio_Compression/Headers/Include/mpu_armv7.h:
 C:/Users/zalma/OneDrive/Documents/F401_DSP/ZZ_Audio_Compression/Headers/Device/ST/STM32F4xx/Include/system_stm32f4xx.h:
+../Inc/Drivers/UART.h:
+../Inc/Libraries/ADPCM.h:
+../Inc/Application/DATA.h:
+../Inc/Libraries/W25Qxx.h:
+../Inc/Drivers/SPI.h:
 ../Inc/Drivers/CLOCK.h:

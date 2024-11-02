@@ -2,4 +2,4 @@
 ../Src/Libraries/ADPCM.c:28:15:ADPCM_EncodeSample	11
 ../Src/Libraries/ADPCM.c:72:6:ADPCM_EncodeBlock	2
 ../Src/Libraries/ADPCM.c:82:16:ADPCM_DecodeSample	7
-../Src/Libraries/ADPCM.c:105:6:ADPCM_DecodeBlock	2
+../Src/Libraries/ADPCM.c:104:6:ADPCM_DecodeBlock	2

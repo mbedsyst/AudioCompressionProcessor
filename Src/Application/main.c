@@ -1,6 +1,6 @@
 #include "Application/main.h"
 
-#define AUDIO_FILE_SIZE		(960512)	// File size in bytes
+#define AUDIO_FILE_SIZE		(960000)				// File size in bytes
 #define AUDIO_BLOCK_SIZE	(AUDIO_FILE_SIZE/4096)
 
 ADPCMEncoderState state;
@@ -26,10 +26,10 @@ int main()
 
 	ADPCM_Init(&state);
 
-	for(int32_t i = 0; i <AUDIO_FILE_SIZE; i++)
+	for(int32_t i = 0; i <AUDIO_BLOCK_SIZE; i++)
 	{
 		ReadPCMCode(i + 8192, EncodedData, 1024);
-		ADPCM_DecodeBlock(&state, EncodedData, DecodedData, 2048);
+		ADPCM_DecodeBlock(&state, (uint8_t *)EncodedData, DecodedData, 2048);
 		WriteAudioData(i + 16384, DecodedData, 2048);
 	}
 
@@ -38,4 +38,12 @@ int main()
 
 	}
 }
+
+
+
+
+
+
+
+
 
